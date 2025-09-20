@@ -602,5 +602,17 @@ body.map {
     .content {
         padding: 20px;
         min-height: auto;
+        justify-content: flex-start;
+        padding-top: 50px;
     }
+}
+/* For all pages */
+body .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically centers the content */
+    align-items: center;     /* horizontally centers the content */
+    min-height: 100vh;       /* ensures content covers full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
 }
