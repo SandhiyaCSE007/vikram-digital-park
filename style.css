@@ -27,6 +27,8 @@ p {
 body.index {
     background: url("images/home.jpg") no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .index .buttonContainer {
@@ -59,7 +61,7 @@ body.about {
 }
 
 body.about .content {
-    margin-top: 150px;
+    margin-top: 40px;
 }
 
 /* Contact page */
@@ -69,7 +71,7 @@ body.contact {
 }
 
 body.contact .content {
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 /* Gallery page */
@@ -79,7 +81,7 @@ body.gallery {
 }
 
 body.gallery .content {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 body.gallery img {
@@ -93,10 +95,11 @@ body.gallery img {
 body.visitors {
     background: url("images/visitor.jpg") no-repeat center center;
     background-size: cover;
+    min-height: 100hv;
 }
 
 body.visitors .content {
-    margin-top: 150px;
+    margin-top: 50px;
     padding: 30px;
 }
 
@@ -558,4 +561,46 @@ body.map .content {
 
 #prevBtn:hover, #nextBtn:hover {
     background: rgba(0,0,0,0.6);
+}
+/* Full screen fix for all pages */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body.index,
+body.about,
+body.contact,
+body.gallery,
+body.visitors,
+body.map {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+}
+
+.content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    body.index, body.about, body.contact, body.gallery, body.visitors, body.map {
+        min-height: auto;
+    }
+
+    .content {
+        padding: 20px;
+        min-height: auto;
+    }
 }
