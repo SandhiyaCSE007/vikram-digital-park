@@ -1,0 +1,562 @@
+/* General styles for all pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    font-size: 60px; /* Bigger heading */
+    font-weight: bold;
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* for visibility over background */
+}
+
+/* Paragraph content */
+p {
+    font-size: 22px; /* Slightly smaller than heading */
+    margin: 20px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* improves readability */
+}
+
+/* Home page */
+body.index {
+    background: url("../images/background/home.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.index .buttonContainer {
+    display: flex;
+    flex-direction: column;  /* One by one vertically */
+    align-items: center;
+    margin-top: 150px;
+}
+
+.index .buttonContainer a {
+    display: block;
+    margin: 20px 0; /* More spacing */
+    padding: 20px 50px; /* Bigger buttons */
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-decoration: none;
+    font-size: 28px; /* Bigger font */
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.index .buttonContainer a:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* About page */
+body.about {
+    background: url("../images/background/about1.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+body.about .content {
+    margin-top: 150px;
+}
+
+/* Contact page */
+body.contact {
+    background: url("../images/background/contact.avif") no-repeat center center;
+    background-size: cover;
+}
+
+body.contact .content {
+    margin-top: 150px;
+}
+
+/* Gallery page */
+body.gallery {
+    background: url("../images/background/gallary.jpeg") no-repeat center center;
+    background-size: cover;
+}
+
+body.gallery .content {
+    margin-top: 100px;
+}
+
+body.gallery img {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* Visitor info page */
+body.visitors {
+    background: url("../images/background/visitor.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+body.visitors .content {
+    margin-top: 150px;
+    padding: 30px;
+}
+
+/* Make the map page fill the entire screen */
+body.map {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+}
+
+body.map iframe {
+    width: 100%;   /* Full width */
+    height: 100vh; /* Full height */
+    border: 0;     /* Remove border */
+}
+/* ---------------------- */
+body.home {
+    background-image: url("../images/background/forest.jpg");
+}
+
+body.about {
+    background-image: url("../images/background/about1.jpg");
+}
+
+body.contact {
+    background-image: url("../images/background/contact.avif");
+}
+
+body.gallery {
+    background-image: url("../images/background/gallary.jpeg");
+}
+
+body.visitor {
+    background-image: url("../images/background/visitor.jpg");
+}
+
+body.map {
+    background-image: url("../images/background/river.jpg");
+}
+
+/* ---------------------- */
+/* Common content box */
+/* ---------------------- */
+.content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 30px;
+    /* light overlay */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ---------------------- */
+/* Headings */
+/* ---------------------- */
+.content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #f8f8f8;
+    text-shadow: 2px 2px 6px 
+    rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+}
+
+/* Paragraphs */
+.content p {
+    font-size: 20px;
+    color: #111111;
+    text-shadow: 1px 1px 4px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* ---------------------- */
+/* General buttons (already in your code) */
+button, .button, .backButton {
+    display: block;
+    width: 250px;
+    padding: 15px 20px;
+    margin: 15px auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2a6f2c; /* default color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover, .button:hover, .backButton:hover {
+    background-color: #1f4d1c;
+}
+
+/* ---- Add your individual button colors BELOW this ---- */
+.button.about {
+    background-color: #2a6f2c; /* dark green */
+    color: #fff;
+}
+
+.button.contact {
+    background-color: #e67e22; /* warm orange */
+    color: #fff;
+}
+
+.button.gallery {
+    background-color: #1f4d8a; /* deep blue */
+    color: #fff;
+}
+/* ---- End of individual button colors ---- */
+/* ---------------------- */
+/* Gallery image preview styling */
+/* ---------------------- */
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-images img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ---------------------- */
+/* Upload input styling (Gallery) */
+/* ---------------------- */
+input[type="file"] {
+    display: block;
+    margin: 20px auto;
+}
+
+/* ---------------------- */
+/* Responsive iframe for Map */
+/* ---------------------- */
+iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* ---------------------- */
+/* Mobile adjustments */
+/* ---------------------- */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    button, .button, .backButton {
+        font-size: 16px;
+        width: 200px;
+        padding: 12px 15px;
+    }
+
+    iframe {
+        height: 300px;
+    }
+}
+
+body.map .content {
+    margin-top: 100px;
+}
+
+/* Back button for all pages */
+.backButton {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 15px 35px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 10px;
+}
+
+.backButton:hover {
+    background: rgba(0,0,0,0.8);
+}
+/* ----------------------
+   Gallery preview grid
+   ---------------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.gallery-grid img,
+.gallery-more img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* "+X more" overlay */
+.gallery-more {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-more .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* Zoom popup */
+#popup {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+#popup img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Full gallery modal */
+#fullGalleryModal {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    overflow-y: auto;
+}
+
+#fullGalleryModal .modal-content {
+    position: relative;
+    padding: 40px 20px;
+}
+
+#closeModal {
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+#fullGalleryModal .gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#fullGalleryModal .gallery-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* ----------------------
+   Gallery preview grid
+   ---------------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.gallery-grid img,
+.gallery-more img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* "+X more" overlay */
+.gallery-more {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-more .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* Fullscreen lightbox popup */
+#popup {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+#popup img {
+    width: auto;
+    height: auto;
+    max-width: 95vw;
+    max-height: 95vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+/* Full gallery modal */
+#fullGalleryModal {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    overflow-y: auto;
+}
+
+#fullGalleryModal .modal-content {
+    position: relative;
+    padding: 40px 20px;
+}
+
+#closeModal {
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+#fullGalleryModal .gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#fullGalleryModal .gallery-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ----------------------
+   Responsive adjustments
+   ---------------------- */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets/phones */
+        max-width: 100%;
+    }
+    #fullGalleryModal .gallery-images img {
+        width: 45%; /* 2 images per row on mobile */
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* single column on small phones */
+    }
+    #fullGalleryModal .gallery-images img {
+        width: 90%;
+        height: auto;
+    }
+}
+/* Fullscreen lightbox with arrows */
+#popup {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+    z-index:10000;
+}
+
+#popupImg {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top:50%;
+    font-size:50px;
+    color:white;
+    padding:10px;
+    cursor:pointer;
+    user-select:none;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    border-radius:50%;
+}
+
+#prevBtn { left:20px; }
+#nextBtn { right:20px; }
+
+#prevBtn:hover, #nextBtn:hover {
+    background: rgba(0,0,0,0.6);
+}

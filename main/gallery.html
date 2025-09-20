@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - Vikram Natural Park</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gallery">
+    <div class="content">
+        <h1>Gallery</h1>
+
+        <!-- Gallery preview grid -->
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+        <!-- User uploads -->
+        <div id="user-gallery"></div>
+        <input type="file" id="upload" multiple>
+
+        <a href="index.html" class="backButton">Back to Home</a>
+    </div>
+
+    <!-- Fullscreen lightbox popup -->
+    <div id="popup">
+        <span id="prevBtn">&#10094;</span>
+        <img id="popupImg" src="" alt="Zoomed Image">
+        <span id="nextBtn">&#10095;</span>
+    </div>
+
+    <!-- Full gallery modal -->
+    <div id="fullGalleryModal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <div class="gallery-images" id="fullGallery"></div>
+        </div>
+    </div>
+
+    <script>
+        // ----------------------------
+        // Static images
+        // ----------------------------
+        const allImages = [
+            "../images/gallary/img1.jpg",
+            "../images/gallary/img2.jpg",
+            "../images/gallary/img3.jpg",
+            "../images/gallary/img4.jpg",
+            "../images/gallary/img5.jpg",
+            "../images/gallary/img6.jpg",
+            "../images/gallary/img7.jpg",
+            "../images/gallary/img8.jpg"
+        ];
+
+        const galleryGrid = document.getElementById("galleryGrid");
+        const fullGallery = document.getElementById("fullGallery");
+
+        // ----------------------------
+        // Global variables for lightbox
+        // ----------------------------
+        let imagesList = [...allImages]; // all images (static + uploaded)
+        let currentIndex = 0;
+
+        // ----------------------------
+        // Load gallery preview and full gallery
+        // ----------------------------
+        function loadGallery() {
+            galleryGrid.innerHTML = "";
+            fullGallery.innerHTML = "";
+
+            const previewCount = 4;
+            const remainingCount = imagesList.length - previewCount;
+
+            imagesList.forEach((src, index) => {
+                // Full gallery
+                const fullImg = document.createElement("img");
+                fullImg.src = src;
+                fullImg.classList.add("gallery-img");
+                fullImg.addEventListener("click", () => openPopup(index));
+                fullGallery.appendChild(fullImg);
+
+                // Preview grid
+                if(index < previewCount){
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.classList.add("gallery-img");
+                    img.addEventListener("click", () => openPopup(index));
+                    galleryGrid.appendChild(img);
+                }
+
+                if(index === previewCount - 1 && remainingCount > 0){
+                    const moreDiv = document.createElement("div");
+                    moreDiv.classList.add("gallery-more");
+                    moreDiv.innerHTML = `<img src="${src}" alt="More Images">
+                                         <span class="overlay-text">+${remainingCount}</span>`;
+                    moreDiv.addEventListener("click", () => {
+                        document.getElementById("fullGalleryModal").style.display = "block";
+                    });
+                    galleryGrid.replaceChild(moreDiv, galleryGrid.lastChild);
+                }
+            });
+        }
+
+        loadGallery();
+
+        // ----------------------------
+        // Fullscreen lightbox functions
+        // ----------------------------
+         // Upload images
+        // ----------------------------
+        document.getElementById("upload")?.addEventListener("change", function(event){
+            const files = event.target.files;
+            const gallery = document.getElementById("user-gallery");
+            gallery.innerHTML = "";
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e){
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    img.classList.add("gallery-img");
+                    gallery.appendChild(img);
+
+                    imagesList.push(img.src); // add to global imagesList
+
+                    // Zoom
+                    img.addEventListener("click", () => openPopup(imagesList.indexOf(img.src)));
+
+                    // Full gallery
+                    const fullImg = document.createElement("img");
+                    fullImg.src = img.src;
+                    fullImg.classList.add("gallery-img");
+                    fullImg.addEventListener("click", () => openPopup(imagesList.indexOf(img.src)));
+                    fullGallery.appendChild(fullImg);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+        const popup = document.getElementById("popup");
+        const popupImg = document.getElementById("popupImg");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function openPopup(index){
+            currentIndex = index;
+            popup.style.display = "flex";
+            popupImg.src = imagesList[currentIndex];
+        }
+
+        function nextImage(){
+            currentIndex = (currentIndex + 1) % imagesList.length;
+            popupImg.src = imagesList[currentIndex];
+        }
+
+        function prevImage(){
+            currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+            popupImg.src = imagesList[currentIndex];
+        }
+
+        popup.addEventListener("click", (e) => {
+            if(e.target.id === "popup") popup.style.display = "none";
+        });
+
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            nextImage();
+        });
+
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            prevImage();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if(popup.style.display === "flex"){
+                if(e.key === "ArrowRight") nextImage();
+                if(e.key === "ArrowLeft") prevImage();
+                if(e.key === "Escape") popup.style.display = "none";
+            }
+        });
+
+        // ----------------------------
+       
+
+        // ----------------------------
+        // Full gallery modal close
+        // ----------------------------
+        document.getElementById("closeModal")?.addEventListener("click", () => {
+            document.getElementById("fullGalleryModal").style.display = "none";
+        });
+    </script>
+</body>
+</html>
