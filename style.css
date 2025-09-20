@@ -25,7 +25,7 @@ p {
 
 /* Home page */
 body.index {
-    background: url("../images/background/home.jpg") no-repeat center center;
+    background: url("../images/home.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -54,7 +54,7 @@ body.index {
 
 /* About page */
 body.about {
-    background: url("../images/background/about1.jpg") no-repeat center center;
+    background: url("../images/about1.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -64,7 +64,7 @@ body.about .content {
 
 /* Contact page */
 body.contact {
-    background: url("../images/background/contact.avif") no-repeat center center;
+    background: url("../images/contact.avif") no-repeat center center;
     background-size: cover;
 }
 
@@ -74,7 +74,7 @@ body.contact .content {
 
 /* Gallery page */
 body.gallery {
-    background: url("../images/background/gallary.jpeg") no-repeat center center;
+    background: url("../images/gallary.jpeg") no-repeat center center;
     background-size: cover;
 }
 
@@ -91,7 +91,7 @@ body.gallery img {
 
 /* Visitor info page */
 body.visitors {
-    background: url("../images/background/visitor.jpg") no-repeat center center;
+    background: url("../images/visitor.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -114,27 +114,26 @@ body.map iframe {
 }
 /* ---------------------- */
 body.home {
-    background-image: url("../images/background/forest.jpg");
+    background-image: url("../images/home.jpg");
 }
 
 body.about {
-    background-image: url("../images/background/about1.jpg");
+    background-image: url("../images/about1.jpg");
 }
-
-body.contact {
-    background-image: url("../images/background/contact.avif");
+    body.contact {
+    background-image: url("../images/contact.avif");
 }
 
 body.gallery {
-    background-image: url("../images/background/gallary.jpeg");
+    background-image: url("../images/gallary.jpeg");
 }
 
 body.visitor {
-    background-image: url("../images/background/visitor.jpg");
+    background-image: url("../images/visitor.jpg");
 }
 
 body.map {
-    background-image: url("../images/background/river.jpg");
+    background-image: url("../images/gallary.jpeg");
 }
 
 /* ---------------------- */
