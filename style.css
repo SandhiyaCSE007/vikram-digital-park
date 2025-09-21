@@ -286,7 +286,7 @@ body.map .content {
     color: white;
     text-decoration: none;
     font-size: 22px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .backButton:hover {
@@ -615,4 +615,42 @@ body .content {
     min-height: 100vh;       /* ensures content covers full viewport height */
     padding: 20px;
     box-sizing: border-box;
+}
+/* Improve font size for phones */
+@media (max-width: 768px) {
+    body {
+        font-size: 18px; /* bigger base font */
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p, li {
+        font-size: 16px;
+    }
+}
+/* Make text bigger on small screens */
+@media (max-width: 768px) {
+  body, p, li {
+    font-size: 18px;  /* default paragraphs and lists */
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .backButton {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
 }
